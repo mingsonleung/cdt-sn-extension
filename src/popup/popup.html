@@ -1,0 +1,67 @@
+<!--
+    {
+    hyperlink: [false, isMacUser ? "k" : "q"],
+    bold: [false, "b"],
+    italic: [false, "i"],
+    image: [true, "i"],
+    orderedList: [false, "o"],
+    unorderedList: [false, "u"],
+    code: [true, "c"],
+    blockquote: [true, "b"],
+    listItem: [true, "l"],
+    paragraph: [false, "p"],
+    }
+-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+
+  <body>
+    <div class="header">
+      <h2>Shortcuts</h2>
+      <!-- Toggle Switch with Logos -->
+      <div class="toggle-container">
+        <!-- Windows Logo -->
+        <img src="../assets/icons/windows-logo.svg" alt="Windows" class="os-logo" />
+        <!-- Toggle Switch -->
+        <label class="switch">
+          <input type="checkbox" id="osToggle">
+          <span class="slider round"></span>
+        </label>
+        <!-- Mac Logo -->
+        <img src="../assets/icons/mac-logo.svg" alt="Mac" class="os-logo" />
+      </div>
+    </div>
+
+    <!-- Shortcuts Lists -->
+    <ul class="shortcuts" id="windowsShortcuts">
+      <li><strong>Bold</strong>: Ctrl+B</li>
+      <li><strong>Italic</strong>: Ctrl+I</li>
+      <li><strong>Hyperlink</strong>: Ctrl+Q</li>
+      <li><strong>Image</strong>: Ctrl+Shift+I</li>
+      <li><strong>Code</strong>: Ctrl+Shift+C</li>
+      <li><strong>Blockquote</strong>: Ctrl+Shift+B</li>
+      <li><strong>Ordered List</strong>: Ctrl+O</li>
+      <li><strong>Unordered List</strong>: Ctrl+U</li>
+      <li><strong>List Item</strong>: Ctrl+Shift+L</li>
+      <li><strong>Paragraph</strong>: Ctrl+P</li>
+    </ul>
+
+    <ul class="shortcuts" id="macShortcuts" style="display: none;">
+      <li><strong>Bold</strong>: &#8984;+B</li>
+      <li><strong>Italic</strong>: &#8984;+I</li>
+      <li><strong>Hyperlink</strong>: &#8984;+K</li>
+      <li><strong>Image</strong>: &#8984;+Shift+I</li>
+      <li><strong>Code</strong>: &#8984;+Shift+C</li>
+      <li><strong>Blockquote</strong>: &#8984;+Shift+B</li>
+      <li><strong>Ordered List</strong>: &#8984;+O</li>
+      <li><strong>Unordered List</strong>: &#8984;+U</li>
+      <li><strong>List Item</strong>: &#8984;+Shift+L</li>
+      <li><strong>Paragraph</strong>: &#8984;+P</li>
+    </ul>
+  </body>
+  <script src="popup.js"></script>
+</html>

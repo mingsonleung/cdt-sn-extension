@@ -1,0 +1,21 @@
+# Node modules (if you add any in the future)
+node_modules/
+
+# Log files
+*.log
+
+# Build directories (if you implement a build process)
+dist/
+build/
+
+# Editor or IDE specific files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Temporary files
+*.tmp
+
+# macOS specific files
+.DS_Store
