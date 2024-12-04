@@ -3,7 +3,7 @@
   "description": "Enhancements for Service Desk workflow; rich text hotkeys",
   "version": "1.0.0",
   "manifest_version": 3,
-  "permissions": ["scripting", "storage"],
+  "permissions": ["storage"],
   "action": {
     "default_popup": "src/popup/popup.html"
   },
