@@ -6,7 +6,7 @@ CDT ServiceNow Helper is a Chrome extension designed to improve the workflow for
 
 - **Rich Text Formatting**: Apply bold, italic, hyperlinks, images, lists, code blocks, blockquotes, and more.
 - **Keyboard Shortcuts**: Use convenient hotkeys to format selected text or insert formatting tags.
-- **ServiceNow Integration**: Specifically tailored to work within ServiceNow's Tokyo release.
+- **ServiceNow Integration**: Specifically tailored to work within ServiceNow's Tokyo release. As of Feb 2025, there have been no reported issues with ServiceNow's Xanadu release.
 
 ## Hotkeys
 
