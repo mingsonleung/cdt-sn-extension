@@ -22,3 +22,4 @@ CDT ServiceNow Helper is a Chrome extension designed to improve the workflow for
 | Unordered List | Ctrl + U             | Cmd + U         |
 | List Item      | Ctrl + Shift + L     | Cmd + Shift + L |
 | Paragraph      | Ctrl + P             | Cmd + P         |
+| Quicklink      | Ctrl + Shift + Q     | Cmd + Shift + K |

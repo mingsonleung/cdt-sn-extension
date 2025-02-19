@@ -11,6 +11,7 @@
     // Function to apply formatting commands to the selected text
     editHighlighted = function (command, selection) {
       log("in command");
+
       // Define the replacement codes for each command
       const replacements = {
         // Hyperlink command, special handling for cursor positioning
@@ -22,6 +23,14 @@
             selectionEnd: startCode.indexOf('"') + 1,
           };
         })(),
+        // Quicklink command using a placeholder approach
+        quicklink: {
+          template:
+            '[code]<a href="https://services.cdt.ca.gov/nav_to.do?uri=task.do?sysparm_query=number=%s" target="_blank">%s</a>[/code]',
+          process: function (selectedText) {
+            return this.template.replace(/%s/g, selectedText);
+          },
+        },
         // Bold formatting
         bold: {
           startCode: "[code]<b>",
@@ -81,20 +90,31 @@
         // Preserve the trailing space if any
         optionalSpace = lastChar ? " " : "";
 
-      // Initialize variables for the replacement codes
-      let startCode,
-        endCode,
-        selectionEnd = -1;
-
       // Return if the command is not recognized
       if (!Object.keys(replacements).includes(command)) {
         return;
       }
 
-      // Get the replacement codes for the command
+      // Get the replacement object for the command
       const replacement = replacements[command];
-      startCode = replacement.startCode;
-      endCode = replacement.endCode;
+
+      // Check if the command uses dynamic processing via a process function
+      if (typeof replacement.process === "function") {
+        const selectedText = textArea.value.substring(start, end).trim(),
+          insertedText = replacement.process(selectedText);
+        textArea.setRangeText(insertedText, start, end, "end");
+        setTimeout(() => {
+          textArea.blur();
+          textArea.focus();
+        }, 10);
+        textArea.selectionEnd = start + insertedText.length;
+        return;
+      }
+
+      // Otherwise, proceed with static replacement
+      const startCode = replacement.startCode,
+        endCode = replacement.endCode;
+      let selectionEnd = -1;
 
       // Determine the new cursor position after insertion
       if (Object.keys(replacement).includes("selectionEnd")) {
@@ -164,9 +184,10 @@
     };
 
   // Define key combinations for formatting commands [shiftKey, key]
-  //[shift, letter]
+  // [shift, letter]
   let keyCombinations = {
     hyperlink: [false, isMacUser ? "k" : "q"],
+    quicklink: [true, isMacUser ? "k" : "q"],
     bold: [false, "b"],
     italic: [false, "i"],
     image: [true, "i"],
